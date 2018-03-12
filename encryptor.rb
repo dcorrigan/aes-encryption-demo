@@ -43,6 +43,10 @@ module Encryptor
   end
 end
 
+# When converted to hex, this key becomes 256 bits. This is obviously a bad
+# key; in reality, you would probably want a randomly generated one also
+# encoded as base64 to make it easy to store for all the client-side
+# applications.
 key = '1234' * 16
 enc = Encryptor.encrypt(ARGV[0], key)
 File.open('code-ruby-encrypted.txt', 'w:ascii') { |f| f << enc }
